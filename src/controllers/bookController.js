@@ -1,7 +1,7 @@
 import Book from "../models/bookModel.js"
 
 const addBook = async (req,res)=>{
-    const {title,author,category} = req.body;
+    const {title,author,category} = req.body ?? {};
     
     if(!title || !author || !category){
         return res
@@ -51,7 +51,7 @@ const getBook = async(req,res)=>{
 }
 
 const updateBook = async(req,res)=>{
-    const { available } = req.body
+    const { available } = req.body ?? {}
 
     if (typeof available !== "boolean") {
         return res.status(400).json({
